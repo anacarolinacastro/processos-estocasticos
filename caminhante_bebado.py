@@ -1,6 +1,104 @@
 import random
 import math
 import matplotlib.pyplot as plt
+from pylab import cm, imshow, colorbar, show
+
+def umaDimensao():
+	position = []
+	position.append(0)	#position start from 0
+	for i in range(1000):	#numbers of interations
+		x = random.randint(0,1)
+		if x==0:
+			x=-1
+		position.append(position[-1] + x)	#increment position
+
+	plt.plot(position)	#prepare x plot
+	plt.show()	#show plot
+
+
+def duasDimensoes():
+	amostras = 100
+	tempo = 100
+
+	matrixX = []
+	matrixY = []
+	matrix = []
+
+	for n in range(amostras):
+		positionX = []
+		positionX.append(0)
+		positionY = []
+		positionY.append(0)	
+		for t in range(tempo):	#numbers of interations
+			caso = random.randint(0,1)
+			if caso == 0:
+				# anda em uma dimensao
+				dimensao = random.randint(0,1)
+				if dimensao == 0:
+					# caminhante move em x
+					x = random.randint(0,1)
+					if x == 0:
+						x = -1.0
+					else:
+						x = 1.0
+					positionX.append(positionX[-1] + x)	#increment position
+					positionY.append(positionY[-1]) # keep last result
+
+				else:
+					# caminhante move em y
+					y = random.randint(0,1)
+					if y == 0:
+						y = -1.0
+					else:
+						y = 1.0
+					positionY.append(positionY[-1] + y)	#increment position
+					positionX.append(positionX[-1]) # keep last result
+			else:
+				# anda nas duas dimensoes
+				x = random.randint(0,1)
+				if x == 0:
+					x = -1.0
+				else:
+					x = 1.0
+				positionX.append(positionX[-1] + x)	#increment position
+
+				y = random.randint(0,1)
+				if y == 0:
+					y = -1.0
+				else:
+					y = 1.0
+				positionY.append(positionY[-1] + y)	#increment position
+
+
+		matrixX.append(positionX)
+		matrixY.append(positionY)
+
+	minX = 0
+	minY = 0
+	maxX = 0
+	maxY = 0
+	for i in range(len(matrixX)):
+		if (minX>min(matrixX[i])):
+			minX = min(matrixX[i])
+		if (minY>min(matrixY[i])):
+			minY = min(matrixY[i])
+		if (maxX<max(matrixX[i])):
+			maxX = max(matrixX[i])
+		if (maxY<max(matrixY[i])):
+			maxY = max(matrixY[i])
+
+	matrix = [[0 for x in range(int(abs(maxX))+int(abs(minX))+1)] for y in range(int(abs(maxY))+int(abs(minY))+1)]
+	for i in range(amostras):
+		for t in range(tempo):
+			matrix[int(int(abs(minY))+matrixY[i][t])][int(int(abs(minX))+matrixX[i][t])] += 1
+
+	# colormap
+	cmap = cm.jet
+	# set NaN values as white
+	cmap.set_bad('w')
+	im = imshow(matrix, cmap=cmap, interpolation='nearest')
+	colorbar()
+	show()
 
 def media(x):
 	return sum(x)/len(x)
@@ -12,7 +110,7 @@ def desvio_padrao(x):
 		soma += (x[i] - media_x)**2
 	return math.sqrt(soma/(len(x)))
 
-def main():
+def caminhate1D_ciro():
 	caminhante = []
 	desvio_do_caminhante =[]
 	t = []
@@ -43,6 +141,11 @@ def main():
 	plt.plot(desvio_do_caminhante)	#prepare plot
 	plt.plot(t)
 	plt.show()	#show plot
-	return 0
+
+def main():
+	# caminhate1D_ciro()
+	# umaDimensao()
+	duasDimensoes()
+	
 
 main()
