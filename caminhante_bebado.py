@@ -17,7 +17,7 @@ def main():
 	desvio_do_caminhante =[]
 	t = []
 
-	for j in range(1000):
+	for j in range(1000):     #time increment
 		t.append(math.sqrt(j))
 
 	for j in range(200):
@@ -32,7 +32,7 @@ def main():
 				x=1.0
 			position.append(position[-1] + x)	#increment position
 
-		caminhante.append(position)
+		caminhante.append(position)	#put positions in caminhante
 
 	for j in range(len(caminhante[0])):
 		amostra = []
