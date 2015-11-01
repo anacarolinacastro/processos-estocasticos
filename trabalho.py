@@ -1,11 +1,14 @@
 import matplotlib.pyplot as plt
-# (t,x)
+import math
 
 p1 = [2,4]
 p2 = [3,9]
 p3 = [6,36]
-p4 = [9,81]
-p = [p1,p2,p3,p4]
+p4 = [9,90]
+# p = [p1,p2,p3,p4]
+p = []
+for i in range(11):
+	p.append([i,math.sqrt(i)])
 
 def f(t): 
 	# interpolacao de lagrange
@@ -25,14 +28,12 @@ def f(t):
 
 
 def main():
-	plt.plot(p1[0],p1[1],'bo')
-	plt.plot(p2[0],p2[1],'bo')
-	plt.plot(p3[0],p3[1],'bo')
-	plt.plot(p4[0],p4[1],'bo')
+	for i in range(len(p)):
+		plt.plot(p[i][0],p[i][1],'bo')
 
 	data = []
 	t = []
-	for i in range(100):
+	for i in range(101):
 		t.append(i*0.1)
 		data.append(f(i*0.1))
 
