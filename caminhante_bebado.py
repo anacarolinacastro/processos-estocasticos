@@ -76,9 +76,31 @@ def duasDimensoes():
 		amostra_x = []
 		amostra_y = []
 		for z in range(num_caminhantes):
-			amostra_x.append(caminhante_x[z][j]) 
+			amostra_x.append(math.sqrt(caminhante_x[z][j]**2 + caminhante_y[z][j]**2)) 
 			amostra_y.append(caminhante_y[z][j]) 	
 		desvio_do_caminhante.append(desvio_padrao(amostra_x)) # APENAS CALCULANDO PARA X
+
+	#GRAFICO DA LOUCURA---------------------------------------------------
+	minX = 0
+	minY = 0
+	maxX = 0
+	maxY = 0
+	for i in range(num_caminhantes):
+		if (minX>min(caminhante_x[i])):
+			minX = min(caminhante_x[i])
+		if (minY>min(caminhante_y[i])):
+			minY = min(caminhante_y[i])
+		if (maxX<max(caminhante_x[i])):
+			maxX = max(caminhante_x[i])
+		if (maxY<max(caminhante_y[i])):
+			maxY = max(caminhante_y[i])
+
+	matrix = [[0 for x in range(int(abs(maxX))+int(abs(minX))+1)] for y in range(int(abs(maxY))+int(abs(minY))+1)]
+	for i in range(num_caminhantes):
+		for t in range(tempo):
+			matrix[int(int(abs(minY))+caminhante_y[i][t])][int(int(abs(minX))+caminhante_x[i][t])] += 1	
+	#---------------------------------------------------------------------------------------------
+
 
 	plt.plot(desvio_do_caminhante)	#prepare plot
 	plt.plot(tp)
