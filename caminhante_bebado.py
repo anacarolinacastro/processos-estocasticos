@@ -118,20 +118,28 @@ def duasDimensoes():
 
 	for j in range(len(matrix[0])):
 		amostra = []
+		amostra2 = []
 		for z in range(len(matrixX)):
 			amostra.append(matrixX[z][j])	
-		desvio_do_caminhante.append(desvio_padrao(amostra))	
+			amostra2.append(matrixY[z][j])	
+			# amostra.append(math.sqrt(pow(matrixX[z][j],2)+pow(matrixY[z][j],2)))	
+		desvio_do_caminhante.append(math.sqrt(pow(desvio_padrao(amostra),2)+pow(desvio_padrao(amostra2),2)))	
+		# desvio_do_caminhante.append(math.sqrt(pow(desvio_padrao(amostra),2)+pow(desvio_padrao(amostra2),2)))	
+		# desvio_do_caminhante.append(desvio_padrao(amostra))	
 
 	plt.plot(desvio_do_caminhante)	#prepare plot
 	plt.plot(tp)
 	plt.show()	#show plot
 
-	# # colormap
-	# cmap = cm.jet
-	# cmap.set_bad('w')
-	# im = imshow(matrix, cmap=cmap, interpolation='nearest')
-	# colorbar()
-	# show()
+	# colormap
+	cmap = cm.jet
+	cmap.set_bad('w')
+	im = imshow(matrix, cmap=cmap, interpolation='nearest')
+	colorbar()
+	show()
+
+def variancia(x):
+	return pow(desvio_padrao(x),2)
 
 def media(x):
 	return sum(x)/len(x)
