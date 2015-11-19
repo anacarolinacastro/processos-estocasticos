@@ -7,15 +7,16 @@ def umaDimensao():
 	caminhante = []
 	desvio_do_caminhante =[]
 	t = []
+	temp = 100
 
-	for j in range(1000):
+	for j in range(temp):
 		t.append(math.sqrt(j))
 
 	for j in range(200):
 		position = []
 		position.append(0)	#position start from 0
 
-		for i in range(1000):	#numbers of interations
+		for i in range(temp):	#numbers of interations
 			x = random.randint(0,1)
 			if x==0:
 				x=-1.0
@@ -127,16 +128,16 @@ def duasDimensoes():
 		# desvio_do_caminhante.append(math.sqrt(pow(desvio_padrao(amostra),2)+pow(desvio_padrao(amostra2),2)))	
 		# desvio_do_caminhante.append(desvio_padrao(amostra))	
 
-	plt.plot(desvio_do_caminhante)	#prepare plot
-	plt.plot(tp)
-	plt.show()	#show plot
+	# plt.plot(desvio_do_caminhante)	#prepare plot
+	# plt.plot(tp)
+	# plt.show()	#show plot
 
-	# colormap
-	cmap = cm.jet
-	cmap.set_bad('w')
-	im = imshow(matrix, cmap=cmap, interpolation='nearest')
-	colorbar()
-	show()
+	# # colormap
+	# cmap = cm.jet
+	# cmap.set_bad('w')
+	# im = imshow(matrix, cmap=cmap, interpolation='nearest')
+	# colorbar()
+	# show()
 
 def variancia(x):
 	return pow(desvio_padrao(x),2)
@@ -179,13 +180,13 @@ def caminhate1D_ciro():
 			amostra.append(caminhante[z][j])	
 		desvio_do_caminhante.append(desvio_padrao(amostra))	
 
-	plt.plot(desvio_do_caminhante)	#prepare plot
-	plt.plot(t)
-	plt.show()	#show plot
+	# plt.plot(desvio_do_caminhante)	#prepare plot
+	# plt.plot(t)
+	# plt.show()	#show plot
 
 def main():
-	# umaDimensao()
-	duasDimensoes()
+	umaDimensao()
+	# duasDimensoes()
 	
 
 main()
