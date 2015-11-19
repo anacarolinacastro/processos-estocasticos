@@ -2,20 +2,30 @@ import random
 import math
 import matplotlib.pyplot as plt
 from pylab import cm, imshow, colorbar, show
+import numpy as np
+import scipy as sp
+from scipy.interpolate import interp1d
+from scipy import interpolate
+import scipy.interpolate as inter
+import numpy as np
+import pylab as plt
+
+
 
 def umaDimensao():
 	caminhante = []
 	desvio_do_caminhante =[]
 	t = []
+	temp = 100
 
-	for j in range(1000):
+	for j in range(temp):
 		t.append(math.sqrt(j))
 
 	for j in range(200):
 		position = []
 		position.append(0)	#position start from 0
 
-		for i in range(1000):	#numbers of interations
+		for i in range(temp):	#numbers of interations
 			x = random.randint(0,1)
 			if x==0:
 				x=-1.0
@@ -97,6 +107,7 @@ def duasDimensoes():
 	matrix = [[0 for x in range(int(abs(maxX))+int(abs(minX))+1)] for y in range(int(abs(maxY))+int(abs(minY))+1)]
 	for i in range(num_caminhantes):
 		for t in range(tempo):
+
 			matrix[int(int(abs(minY))+caminhante_y[i][t])][int(int(abs(minX))+caminhante_x[i][t])] += 1	
 	#---------------------------------------------------------------------------------------------
 	
@@ -111,6 +122,9 @@ def duasDimensoes():
 	colorbar()
 	show()	
 
+def variancia(x):
+	return pow(desvio_padrao(x),2)
+
 def media(x):
 	return sum(x)/len(x)
 
@@ -121,9 +135,32 @@ def desvio_padrao(x):
 		soma += (x[i] - media_x)**2
 	return math.sqrt(soma/(len(x)))
 
+
+def raio_gota():
+	x1 = []
+	y1 = [0.0, 4.86145310969863, 7.9622103949172285, 10.318877638434742, 12.279599156048462, 14.004704563355219, 15.30134774432635, 16.881628115741066, 17.742845371250354, 18.157515625751387, 19.149235447234418, 19.943364081042446, 20.673835708371385, 21.485613609689835, 22.109636622936847, 22.658230422829476, 23.135058014571882, 23.03827966117315]
+
+	x1.append(0)
+	for i in range(17):
+		x1.append(x1[-1] + 3.722222)
+
+	y = np.array(y1)	
+	x = np.array(x1)
+	z = np.polyfit(x, y, 3)
+	p = np.poly1d(z)
+	xp = np.linspace(0, x1[-1], 1000)
+	plt.yscale('linear')
+	_ = plt.plot(x, y, '.', xp, p(xp), '-')
+
+	plt.show()
+
+
+
 def main():
 	#umaDimensao()
-	duasDimensoes()
+	#duasDimensoes()
+	raio_gota()
 	#caminhate1D_ciro()
+	
 
 main()
