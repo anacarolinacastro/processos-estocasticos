@@ -148,7 +148,7 @@ def raio_gota():
 	x = np.array(x1)
 	z = np.polyfit(x, y, 3)
 	p = np.poly1d(z)
-	xp = np.linspace(0, x1[-1], 1000)
+	xp = np.linspace(-1, x1[-1], 1000)
 	plt.yscale('linear')
 	_ = plt.plot(x, y, '.', xp, p(xp), '-')
 
