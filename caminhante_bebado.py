@@ -9,6 +9,7 @@ from scipy import interpolate
 import scipy.interpolate as inter
 import numpy as np
 import pylab as plt
+from numpy.random import normal
 
 
 
@@ -17,6 +18,7 @@ def umaDimensao():
 	desvio_do_caminhante =[]
 	t = []
 	temp = 100
+	last_walk = []
 
 	for j in range(temp):
 		t.append(math.sqrt(j))
@@ -34,12 +36,22 @@ def umaDimensao():
 			position.append(position[-1] + x)	#increment position
 
 		caminhante.append(position)
+		last_walk.append(position[-1])
 
 	for j in range(len(caminhante[0])):
 		amostra = []
 		for z in range(len(caminhante)):
 			amostra.append(caminhante[z][j])	
 		desvio_do_caminhante.append(desvio_padrao(amostra))	
+
+
+	
+	gaussian_numbers = normal(size=1000)
+	plt.hist(last_walk)
+	plt.title("Gaussian Histogram")
+	plt.xlabel("Value")
+	plt.ylabel("Frequency")
+	plt.show()	
 
 	plt.plot(desvio_do_caminhante)	#prepare plot
 	plt.plot(t)
@@ -138,7 +150,7 @@ def desvio_padrao(x):
 
 def raio_gota():
 	x1 = []
-	y1 = [0.0, 4.86145310969863, 7.9622103949172285, 10.318877638434742, 12.279599156048462, 14.004704563355219, 15.30134774432635, 16.881628115741066, 17.742845371250354, 18.157515625751387, 19.149235447234418, 19.943364081042446, 20.673835708371385, 21.485613609689835, 22.109636622936847, 22.658230422829476, 23.135058014571882, 23.03827966117315]
+	y1 = [0.0, 4.86145310969863, 7.9622103949172285, 10.318877638434742, 12.279599156048462, 14.004704563355219, 15.30134774432635, 16.881628115741066, 17.742845371250354, 18.157515625751387, 19.149235447234418, 19.943364081042446, 20.673835708371385, 21.485613609689835, 22.109636622936847, 22.658230422829476, 23.135058014571882, 23.13827966117315]
 
 	x1.append(0)
 	for i in range(17):
@@ -157,9 +169,9 @@ def raio_gota():
 
 
 def main():
-	#umaDimensao()
+	umaDimensao()
 	#duasDimensoes()
-	raio_gota()
+	#raio_gota()
 	#caminhate1D_ciro()
 	
 
