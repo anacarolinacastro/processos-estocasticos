@@ -1,0 +1,70 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc} %codificacao de entrada
+\usepackage[T1]{fontenc} %codificacao de saida
+\usepackage[brazil]{babel}
+
+\usepackage{titling}		% arruma pre titulo
+\usepackage{makeidx}        % Cria o indice
+\usepackage{hyperref}       % Controla a formacao do indice
+\usepackage{lastpage}       % Usado pela Ficha catalografica
+\usepackage{indentfirst}    % Indenta o primeiro paragrafo de cada secao.
+\usepackage{xcolor}          % Controle das cores
+\usepackage{graphicx}       % Inclusao de graficos
+\usepackage{placeins}
+\usepackage{subfig}
+\usepackage{amsmath}        % pacote matemático
+\usepackage{listings}
+\usepackage{longtable}
+
+\usepackage[hmargin=2cm,vmargin=3.5cm,bmargin=2cm]{geometry}
+
+\pretitle{%
+  \begin{center}
+  \LARGE
+  \includegraphics[width=3.5cm,height=4cm]{imgs/logo.png}\\[1.5cm]\textbf{Universidade do Estado do Rio de Janeiro}\\ Instituto Politécnico\\Engenharia de Computação\\[2cm]
+}
+\posttitle{\normalsize \end{center}}
+
+\title{\textbf{\underline{Trabalho}\\[0.5cm]
+Processos Estocásticos}\\[0.3cm]\large{Professor Angelo}\\[1.5cm]}
+\author{
+	Ana Carolina Castro\\
+	\texttt{anacarolinacastro@aol.com}
+	\and
+	Ciro Chang Gostosao rs\\
+	\texttt{cirochang@live.com}
+	\\[1.5cm]
+}
+\date{Nova Friburgo\\31 de Outubro de 2015}
+
+    
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\newpage
+\tableofcontents
+
+\newpage
+\section{Introdução}
+Neste trabalho iremos analisar 
+
+Esse trabalho tem como objetivo analisar os resultados de séries aleatórias. Usaremos quatro séries, onde
+a primeira e a segunda serão compostas por valores totalmente aleatórios entre $-1$ e $1$. A terceira será uma cópia parcial da primeira série, isto é, para cada valor da primeira séries iremos tirar na sorte se o valor será copiado ou um novo valor aleatório. E a quarta série será dada pela função $sen(x)$, para cada valor da primeira série.\\[1cm]
+
+\section{O Caminhante Bebado}
+\subsection{Variáncia}
+\subsection{1 Dimensão}
+\subsection{2 Dimensões}
+hehehe\\[1.5cm]
+
+\section{Gota}
+A gota cai, a rua inunda.
+\subsection{Simulação}
+\subsection{Experimento}
+
+\end{document}
+
+
+
+
