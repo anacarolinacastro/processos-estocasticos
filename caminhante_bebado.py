@@ -48,9 +48,9 @@ def umaDimensao():
 	
 	gaussian_numbers = normal(size=1000)
 	plt.hist(last_walk)
-	plt.title("Gaussian Histogram")
-	plt.xlabel("Value")
-	plt.ylabel("Frequency")
+	plt.title("Caminhante Aleatrio")
+	plt.xlabel("Posicao")
+	plt.ylabel("N caminhantes")
 	plt.show()	
 
 	plt.plot(desvio_do_caminhante)	#prepare plot
