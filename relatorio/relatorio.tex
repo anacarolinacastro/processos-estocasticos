@@ -15,6 +15,7 @@
 \usepackage{amsmath}        % pacote matemático
 \usepackage{listings}
 \usepackage{longtable}
+\usepackage{float}
 
 \usepackage[hmargin=2cm,vmargin=3.5cm,bmargin=2cm]{geometry}
 
@@ -63,11 +64,72 @@ Na área da Probabilidade e Estatística, o desvio padrão é a medida mais comu
 s = \sqrt{\frac{\sum{x_i^2} - \frac{1}{n}(\sum{x_i)^2}}{n}}
 \end{equation}
 
-\subsection{O Caminhante em uma direção}
-Quando admitimos que o caminhante passeia em apenas uma direção, consideramos que ele anda em $y$, podendo ir para cima ou para baixo.
+\subsection{O Caminhante em uma dimensão}
+Quando admitimos que o caminhante passeia em apenas uma dimensão, consideramos que ele anda em $y$, podendo ir para cima ou para baixo. Como na figura \ref{um_caminhante1}.
 
-\subsection{O Caminhante em duas direções}
-Quando admitimos que o caminhante passeia em duas direções, consideramos que ele anda em $x$ ou $y$, podendo andar em $x$ e $y$ ao mesmo tempo ou só em $x$ ou $y$ (cima, baixo, esquerda, direita e diagonais).
+\begin{figure}[H]
+\centering
+\includegraphics[width=12cm,height=9cm]{imgs/1d/um_caminhante.png}
+\caption{Caminho percorrido por apenas um caminhante em uma dimensão}
+\label{um_caminhante1}
+\end{figure}
+
+
+Usamos essa simulação para calcular o caminho de 1000 passos, percorrido por 1000 caminhantes. Como resultado obtivemos o seguinte histograma (figura \ref{histograma1}).
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=12cm,height=9cm]{imgs/1d/histograma.png}
+\caption{MUDAR A LEGENDA}
+\label{histograma1}
+\end{figure}
+
+Calculamos o desvio padrão para as amostras calculadas dos caminhantes (figura \ref{desvio1}).
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=12cm,height=9cm]{imgs/1d/desvio.png}
+\caption{MUDAR A LEGENDA}
+\label{desvio1}
+\end{figure}
+
+\newpage
+\subsection{O Caminhante em duas dimensões}
+Quando admitimos que o caminhante passeia em duas dimensões, consideramos que ele anda em $x$ ou $y$, podendo andar em $x$ e $y$ ao mesmo tempo ou só em $x$ ou $y$ (cima, baixo, esquerda, direita e diagonais).Como na figura \ref{um_caminhante2}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=12cm,height=9cm]{imgs/2d/um_caminhante.png}
+\caption{Caminho percorrido por apenas um caminhante em uma dimensão}
+\label{um_caminhante2}
+\end{figure}
+
+Usamos essa simulação para calcular o caminho de 1000 passos, percorrido por 1000 caminhantes. Como resultado obtivemos o seguintes histogramas para o eixo $x$ (figura \ref{histograma2x}) e para o eixo $y$ (figura \ref{histograma2y}).
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=12cm,height=9cm]{imgs/2d/histograma_X.png}
+\caption{MUDAR A LEGENDA}
+\label{histograma2x}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=12cm,height=9cm]{imgs/2d/histograma_y.png}
+\caption{MUDAR A LEGENDA}
+\label{histograma2y}
+\end{figure}
+
+
+Calculamos o desvio padrão para as amostras calculadas dos caminhantes (figura \ref{desvio2}). O desvio padrão para o caminhante 2D foi calculado com base nos desvios em relação a X e a Y e calculamos a norma desses dois resultados.
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=12cm,height=9cm]{imgs/2d/desvio.png}
+\caption{MUDAR A LEGENDA}
+\label{desvio2}
+\end{figure}
 
 
 \newpage
@@ -75,6 +137,10 @@ Quando admitimos que o caminhante passeia em duas direções, consideramos que e
 \subsection{Simulação}
 
 \subsection{Experimento}
+
+
+\newpage
+\section{Conclusões}
 
 \end{document}
 

@@ -13,6 +13,7 @@ from numpy.random import normal
 from scipy.optimize import curve_fit
 
 
+num_caminhantes = 1000
 
 def umaDimensao():
 	caminhante = []
@@ -24,7 +25,7 @@ def umaDimensao():
 	for j in range(temp):
 		t.append(math.sqrt(j))
 
-	for j in range(200):
+	for j in range(num_caminhantes):
 		position = []
 		position.append(0)	#position start from 0
 
@@ -69,7 +70,6 @@ def umaDimensao():
 
 
 def duasDimensoes():
-	num_caminhantes = 1000
 	tempo = 1000
 	last_walk_distance = []
 
@@ -117,11 +117,18 @@ def duasDimensoes():
 			
 
 
-	plt.hist(last_walk_distance)
+	# plt.hist(last_walk_distance)
+	plt.hist(caminhante_x)
 	plt.title("Caminhante Aleatrio")
-	plt.xlabel("Distancia")
+	plt.xlabel("Distancia em X")
 	plt.ylabel("Quantidade de caminhantes")
 	plt.show()		
+
+	plt.hist(caminhante_y)
+	plt.title("Caminhante Aleatrio")
+	plt.xlabel("Distancia em Y")
+	plt.ylabel("Quantidade de caminhantes")
+	plt.show()	
 
 	desvio_do_caminhante = []
 	for j in range(tempo):
