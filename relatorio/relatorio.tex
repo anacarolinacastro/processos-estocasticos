@@ -47,18 +47,33 @@ Processos Estocásticos}\\[0.3cm]\large{Professor Angelo}\\[1.5cm]}
 
 \newpage
 \section{Introdução}
-Esse trabalho tem como objetivo analisar os resultados de séries aleatórias. Usaremos quatro séries, onde
-a primeira e a segunda serão compostas por valores totalmente aleatórios entre $-1$ e $1$. A terceira será uma cópia parcial da primeira série, isto é, para cada valor da primeira séries iremos tirar na sorte se o valor será copiado ou um novo valor aleatório. E a quarta série será dada pela função $sen(x)$, para cada valor da primeira série.\\[1cm]
+Esse trabalho tem como objetivo 
 
-\section{O Caminhante Bebado}
-\subsection{Variáncia}
-\subsection{1 Dimensão}
-\subsection{2 Dimensões}
-hehehe\\[1.5cm]
+\newpage
+\section{O Passeio Aleatório}
+O Passeio Aleatório, ou Caminhante Bêbado, é um modelo aonde um caminhante dá um passo em uma direção aleatória. Podemos tomar como exemplo o caminho percorrido por uma molécula ou por um fluido. O algoritmo do Passeio Aleatório é dado pelas seguintes regras" o caminhante tem um ponto de partida inicial, ele anda um passo constante em uma direção, a direção é escolhida aleatoriamente e todas as direções tem a mesma probabilidade de escolha.
 
+
+
+\subsection{Desvio padrão}
+Na área da Probabilidade e Estatística, o desvio padrão é a medida mais comum da dispersão estatística. Sua principal característica é mostrar o quanto de variação existe em relação a média esperada. A fórmula utilizada para calcular o desvio padrão das simulações realizadas foi a equação \ref{desvio}.
+
+\begin{equation}
+\label{desvio}
+s = \sqrt{\frac{\sum{x_i^2} - \frac{1}{n}(\sum{x_i)^2}}{n}}
+\end{equation}
+
+\subsection{O Caminhante em uma direção}
+Quando admitimos que o caminhante passeia em apenas uma direção, consideramos que ele anda em $y$, podendo ir para cima ou para baixo.
+
+\subsection{O Caminhante em duas direções}
+Quando admitimos que o caminhante passeia em duas direções, consideramos que ele anda em $x$ ou $y$, podendo andar em $x$ e $y$ ao mesmo tempo ou só em $x$ ou $y$ (cima, baixo, esquerda, direita e diagonais).
+
+
+\newpage
 \section{Gota}
-A gota cai, a rua inunda.
 \subsection{Simulação}
+
 \subsection{Experimento}
 
 \end{document}

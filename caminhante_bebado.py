@@ -187,7 +187,7 @@ def raio_gota():
 
 
 def main():
-	#umaDimensao()
+	# umaDimensao()
 	duasDimensoes()
 	#raio_gota()
 	#caminhate1D_ciro()
