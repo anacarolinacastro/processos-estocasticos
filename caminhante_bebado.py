@@ -38,6 +38,12 @@ def umaDimensao():
 
 		caminhante.append(position)
 		last_walk.append(position[-1])
+		if j == 1: #GRAFICO DE UM CAMINHANTE
+			plt.plot(position)
+			plt.title("Grafico de um caminhante")
+			plt.xlabel("tempo")
+			plt.ylabel("posicao")
+			plt.show()
 
 	for j in range(len(caminhante[0])):
 		amostra = []
@@ -97,7 +103,19 @@ def duasDimensoes():
 
 		caminhante_x.append(positionX)
 		caminhante_y.append(positionY)	
-		last_walk_distance.append( math.sqrt(positionX[-1]**2 + positionY[-1]**2) )  
+		last_walk_distance.append( math.sqrt(positionX[-1]**2 + positionY[-1]**2) )
+
+		if n == 1: #GRAFICO DE UM CAMINHANTE
+			print np.amax(positionX)
+			plt.plot(positionX,positionY,'ro')
+			plt.axis([np.amin(positionX)-1, np.amax(positionX)+1, np.amin(positionY)-1, np.amax(positionY)+1])
+			plt.title("Grafico de um caminhante")
+			plt.xlabel("x")
+			plt.ylabel("y")
+			plt.show()  
+
+			
+
 
 	plt.hist(last_walk_distance)
 	plt.title("Caminhante Aleatrio")
@@ -114,19 +132,10 @@ def duasDimensoes():
 			amostra_y.append(caminhante_y[z][j]) 
 		desvio_do_caminhante.append(8.5*math.log10(desvio_padrao(amostra_x)+1)) # APENAS CALCULANDO PARA X  ( NEED TO CHANGE ) !!!!!!!!!!!!!!!!!!!!!!!!
 	#GRAFICO DA LOUCURA---------------------------------------------------
-	minX = 0
-	minY = 0
-	maxX = 0
-	maxY = 0
-	for i in range(num_caminhantes):
-		if (minX>min(caminhante_x[i])):
-			minX = min(caminhante_x[i])
-		if (minY>min(caminhante_y[i])):
-			minY = min(caminhante_y[i])
-		if (maxX<max(caminhante_x[i])):
-			maxX = max(caminhante_x[i])
-		if (maxY<max(caminhante_y[i])):
-			maxY = max(caminhante_y[i])
+	minX = np.amin(caminhante_x)
+	minY = np.amin(caminhante_y)
+	maxX = np.amax(caminhante_x)
+	maxY = np.amin(caminhante_y)
 
 	matrix = [[0 for x in range(int(abs(maxX))+int(abs(minX))+1)] for y in range(int(abs(maxY))+int(abs(minY))+1)]
 	for i in range(num_caminhantes):
@@ -181,6 +190,7 @@ def raio_gota():
 	plt.title("Experimento da gota")
 	plt.xlabel("tempo")
 	plt.ylabel("Raio da gota")
+	plt.axis([0, np.amax(x)+1, 0, np.amax(y)+1])
 
 	plt.show()
 
@@ -188,8 +198,8 @@ def raio_gota():
 
 def main():
 	#umaDimensao()
-	duasDimensoes()
-	#raio_gota()
+	#duasDimensoes()
+	raio_gota()
 	#caminhate1D_ciro()
 	
 
