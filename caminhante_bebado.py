@@ -10,6 +10,7 @@ import scipy.interpolate as inter
 import numpy as np
 import pylab as plt
 from numpy.random import normal
+from scipy.optimize import curve_fit
 
 
 
@@ -50,9 +51,12 @@ def umaDimensao():
 	plt.hist(last_walk)
 	plt.title("Caminhante Aleatrio")
 	plt.xlabel("Posicao")
-	plt.ylabel("N caminhantes")
+	plt.ylabel("Quantidade de caminhantes")
 	plt.show()	
 
+	plt.title("Desvio Padrao dos caminhantes")
+	plt.xlabel("tempo")
+	plt.ylabel("Desvio padrao")
 	plt.plot(desvio_do_caminhante)	#prepare plot
 	plt.plot(t)
 	plt.show()	#show plot
@@ -61,6 +65,8 @@ def umaDimensao():
 def duasDimensoes():
 	num_caminhantes = 1000
 	tempo = 100
+	last_walk_distance = []
+
 
 	tp = []
 	for j in range(tempo):
@@ -91,6 +97,13 @@ def duasDimensoes():
 
 		caminhante_x.append(positionX)
 		caminhante_y.append(positionY)	
+		last_walk_distance.append( math.sqrt(positionX[-1]**2 + positionY[-1]**2) )
+
+	plt.hist(last_walk_distance)
+	plt.title("Caminhante Aleatrio")
+	plt.xlabel("Distancia")
+	plt.ylabel("Quantidade de caminhantes")
+	plt.show()		
 
 	desvio_do_caminhante = []
 	for j in range(tempo):
@@ -123,6 +136,9 @@ def duasDimensoes():
 			matrix[int(int(abs(minY))+caminhante_y[i][t])][int(int(abs(minX))+caminhante_x[i][t])] += 1	
 	#---------------------------------------------------------------------------------------------
 	
+	plt.title("Desvio Padrao dos caminhantes")
+	plt.xlabel("tempo")
+	plt.ylabel("Desvio padrao")
 	plt.plot(desvio_do_caminhante)	#prepare plot
 	plt.plot(tp)
 	plt.show()	#show plot
@@ -163,14 +179,17 @@ def raio_gota():
 	xp = np.linspace(-1, x1[-1], 1000)
 	plt.yscale('linear')
 	_ = plt.plot(x, y, '.', xp, p(xp), '-')
+	plt.title("Experimento da gota")
+	plt.xlabel("tempo")
+	plt.ylabel("Raio da gota")
 
 	plt.show()
 
 
 
 def main():
-	umaDimensao()
-	#duasDimensoes()
+	#umaDimensao()
+	duasDimensoes()
 	#raio_gota()
 	#caminhate1D_ciro()
 	
