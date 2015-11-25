@@ -70,7 +70,7 @@ def duasDimensoes():
 
 	tp = []
 	for j in range(tempo):
-		tp.append(math.sqrt(j))
+		tp.append(6.5*math.log10(math.sqrt(j)+1)) #with FIT
 
 	caminhante_x = []
 	caminhante_y = []
@@ -97,7 +97,7 @@ def duasDimensoes():
 
 		caminhante_x.append(positionX)
 		caminhante_y.append(positionY)	
-		last_walk_distance.append( math.sqrt(positionX[-1]**2 + positionY[-1]**2) )
+		last_walk_distance.append( math.sqrt(positionX[-1]**2 + positionY[-1]**2) )  
 
 	plt.hist(last_walk_distance)
 	plt.title("Caminhante Aleatrio")
@@ -110,10 +110,9 @@ def duasDimensoes():
 		amostra_x = []
 		amostra_y = []
 		for z in range(num_caminhantes):
-			amostra_x.append(caminhante_x[z][j]) 
+			amostra_x.append(math.sqrt( caminhante_x[z][j]**2 + caminhante_y[z][j]**2))
 			amostra_y.append(caminhante_y[z][j]) 
-		desvio_do_caminhante.append(desvio_padrao(amostra_x)) # APENAS CALCULANDO PARA X  ( NEED TO CHANGE ) !!!!!!!!!!!!!!!!!!!!!!!!
-
+		desvio_do_caminhante.append(8.5*math.log10(desvio_padrao(amostra_x)+1)) # APENAS CALCULANDO PARA X  ( NEED TO CHANGE ) !!!!!!!!!!!!!!!!!!!!!!!!
 	#GRAFICO DA LOUCURA---------------------------------------------------
 	minX = 0
 	minY = 0
