@@ -18,7 +18,7 @@ def umaDimensao():
 	caminhante = []
 	desvio_do_caminhante =[]
 	t = []
-	temp = 100
+	temp = 1000
 	last_walk = []
 
 	for j in range(temp):
@@ -70,7 +70,7 @@ def umaDimensao():
 
 def duasDimensoes():
 	num_caminhantes = 1000
-	tempo = 100
+	tempo = 1000
 	last_walk_distance = []
 
 
@@ -135,7 +135,7 @@ def duasDimensoes():
 	minX = np.amin(caminhante_x)
 	minY = np.amin(caminhante_y)
 	maxX = np.amax(caminhante_x)
-	maxY = np.amin(caminhante_y)
+	maxY = np.amax(caminhante_y)
 
 	matrix = [[0 for x in range(int(abs(maxX))+int(abs(minX))+1)] for y in range(int(abs(maxY))+int(abs(minY))+1)]
 	for i in range(num_caminhantes):
@@ -198,8 +198,8 @@ def raio_gota():
 
 def main():
 	#umaDimensao()
-	#duasDimensoes()
-	raio_gota()
+	duasDimensoes()
+	#raio_gota()
 	#caminhate1D_ciro()
 	
 
